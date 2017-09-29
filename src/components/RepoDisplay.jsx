@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getRepo } from './../actions';
 
 const RepoDisplay = ({ repoInfo }) => {
+
   const { username } = repoInfo;
   return (
   <div>{username}</div>
