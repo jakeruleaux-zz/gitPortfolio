@@ -3,17 +3,26 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getRepo } from './../actions';
 
-const RepoDisplay = ({ repoInfo }) => {
+const RepoDisplay = ({ dispatch, repoInfo }) => {
 
-  const { username } = repoInfo;
+  const { name } = repoInfo;
   return (
-  <div>{username}</div>
+  <div>
+    {name}
+    <button onClick={() => {dispatch(getRepo())}}></button>
+  </div>
 );
 }
 
+const mapPropsToState = state => {
+  const repoInfo = state;
+  return {
+    repoInfo: repoInfo.name
+  }
+}
 RepoDisplay.propTypes = {
   repoInfo: PropTypes.object,
   username: PropTypes.string
 };
 
-export default connect()(RepoDisplay);
+export default connect(mapPropsToState)(RepoDisplay);

@@ -6,8 +6,10 @@ export const requestRepo = (repoId) => ({
   repoId
 });
 
-export const recieveRepo = (repoId) => ({
+export const displayRepo = (name, url, repoId) => ({
   type: types.DISPLAY_REPO,
+  name,
+  url,
   repoId
 });
 
@@ -20,6 +22,7 @@ export function getRepo(dispatch) {
     .then(response => response.json(),error => console.log("error")
   ).then(function(json) {
     console.log("done", )
+    dispatch(displayRepo(name, url, repoId));
   });
 };
 }
