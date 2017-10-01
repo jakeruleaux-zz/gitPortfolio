@@ -2,7 +2,7 @@ import constants from './..constants';
 
 const { defaultState, types } = constants;
 
-const getRepo = (state = defaultState, action) => {
+const getRepoReducer = (state = defaultState, action) => {
   let repo;
   let newRepo;
   let newState;
@@ -16,7 +16,19 @@ const getRepo = (state = defaultState, action) => {
         [action.repoId]: newRepo
       });
       return newState;
+    case types.DISPLAY_REPO:
+        newRepo = {
+          name: action.name,
+          url: action.url,
+          repoId: action.repoId
+    };
+    newState = Object.assign({}, state, {
+        [action.repoId]: newRepo
+    });
+      return newState;      
+    default:
+      return state;
   }
 };
 
-export default getRepo;
+export default getRepoReducer;

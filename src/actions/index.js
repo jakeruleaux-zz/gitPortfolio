@@ -7,7 +7,7 @@ export const requestRepo = (repoId) => ({
 });
 
 export const recieveRepo = (repoId) => ({
-  type: types.RECIEVE_REPO,
+  type: types.DISPLAY_REPO,
   repoId
 });
 
