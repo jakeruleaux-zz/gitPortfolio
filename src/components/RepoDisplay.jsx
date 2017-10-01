@@ -14,15 +14,17 @@ const RepoDisplay = ({ dispatch, repoInfo }) => {
 );
 }
 
+RepoDisplay.propTypes = {
+  repoInfo: PropTypes.object,
+  name: PropTypes.string
+};
+
 const mapPropsToState = state => {
   const repoInfo = state;
   return {
     repoInfo: repoInfo.name
   }
 }
-RepoDisplay.propTypes = {
-  repoInfo: PropTypes.object,
-  username: PropTypes.string
-};
+
 
 export default connect(mapPropsToState)(RepoDisplay);

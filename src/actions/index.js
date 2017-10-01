@@ -18,7 +18,7 @@ export function getRepo(dispatch) {
   return function (dispatch) {
     const repoId = v4();
     dispatch(requestRepo(repoId));
-    return fetch("https://api.github.com/users/jakeruleaux"),
+    return fetch("https://api.github.com/users/jakeruleaux")
     .then(response => response.json(),error => console.log("error")
   ).then(function(json) {
     console.log("done", )
