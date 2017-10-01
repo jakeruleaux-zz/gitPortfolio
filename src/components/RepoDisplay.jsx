@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getRepo } from './../actions';
 
-const RepoDisplay = ({ dispatch, repoInfo }) => {
-
-  const { name } = repoInfo;
+const RepoDisplay = ({ dispatch, name }) => {
   return (
   <div>
     {name}
@@ -14,15 +12,12 @@ const RepoDisplay = ({ dispatch, repoInfo }) => {
 );
 }
 
-RepoDisplay.propTypes = {
-  repoInfo: PropTypes.object,
-  name: PropTypes.string
-};
+
 
 const mapPropsToState = state => {
-  const repoInfo = state;
+  const repo = state;
   return {
-    repoInfo: repoInfo.name
+    repo: repo.name
   }
 }
 

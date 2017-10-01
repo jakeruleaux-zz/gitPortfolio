@@ -1,6 +1,6 @@
 export const defaultState = {
     isFetching: false,
-    name: "jakeruleaux";
+    name: "jakeruleaux",
     url: "repo",
     repoId: 0
 };

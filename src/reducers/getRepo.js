@@ -1,4 +1,4 @@
-import constants from './..constants';
+import constants from './../constants';
 
 const { defaultState, types } = constants;
 
@@ -25,7 +25,7 @@ const getRepoReducer = (state = defaultState, action) => {
     newState = Object.assign({}, state, {
         [action.repoId]: newRepo
     });
-      return newState;      
+      return newState;
     default:
       return state;
   }

@@ -1,5 +1,8 @@
 import * as types from "./../constants/ActionTypes";
 import v4 from "uuid/v4";
+import fetch from "isomorphic-fetch";
+import apiKey from '../../.env';
+
 
 export const requestRepo = (repoId) => ({
   type: types.REQUEST_REPO,
@@ -19,10 +22,11 @@ export function getRepo(dispatch) {
     const repoId = v4();
     dispatch(requestRepo(repoId));
     return fetch("https://api.github.com/users/jakeruleaux")
-    .then(response => response.json(),error => console.log("error")
+    .then(response => response.json(),
+    error => console.log("error", error)
   ).then(function(json) {
     console.log("done", )
-    dispatch(displayRepo(name, url, repoId));
+    dispatch(displayRepo(name));
   });
 };
 }

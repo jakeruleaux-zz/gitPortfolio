@@ -15,7 +15,7 @@ class RepoSearch extends React.Component {
     if (!_name.value.trim()) {
       return;
     }
-    this.props.dispatch(getRepoId(_name.value.trim()); _name.value = " ";
+    this.props.dispatch(getRepo(_name.value.trim()); _name.value = " ";
   }
 
   render() {
