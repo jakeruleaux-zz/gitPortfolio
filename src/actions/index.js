@@ -9,9 +9,8 @@ export const requestRepo = (repoId) => ({
   repoId: repoId
 });
 
-export const displayRepo = (name, repoId) => ({
+export const displayRepo = (repoId) => ({
   type: types.DISPLAY_REPO,
-  name,
   repoId
 });
 
@@ -27,11 +26,13 @@ export function getRepo(dispatch) {
     .then(response => response.json(),
     error => console.log("error", error)
     ).then(function(json) {
-    if (json.id > 1 ) {
+    if (json.id) {
       const name = json;
       console.log(name);
+      dispatch(displayRepo(name));
+    } else {
+      console.log("error");
     }
-    dispatch(displayRepo(name));
   });
 };
 }
