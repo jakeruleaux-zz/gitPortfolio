@@ -17,11 +17,14 @@ const getRepoReducer = (state = defaultState, action) => {
       newState = Object.assign({}, state, {
         [action.repoId]: newRepo
       });
+      console.log("name");
       console.log(newState);
       return newState;
+    default:
+      return state;
     case types.DISPLAY_REPO:
         repo = state[action.repoId];
-        console.log(repo);
+        console.log(newState);
         newRepo = Object.assign({}, repo, {
           isFetching: false,
           name: action.name,
@@ -32,8 +35,6 @@ const getRepoReducer = (state = defaultState, action) => {
       });
       console.log(newState);
       return newState;
-    default:
-      return state;
   }
 };
 

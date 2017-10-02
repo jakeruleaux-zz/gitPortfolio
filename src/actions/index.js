@@ -6,13 +6,9 @@ import fetch from "isomorphic-fetch";
 
 export const requestRepo = (repoId) => ({
   type: types.REQUEST_REPO,
-  repoId: repoId
+  repoId: repoId,
 });
 
-export const displayRepo = (repoId) => ({
-  type: types.DISPLAY_REPO,
-  repoId
-});
 
 
 export function getRepo(dispatch) {
@@ -21,7 +17,7 @@ export function getRepo(dispatch) {
   return function (dispatch) {
     let name;
     const repoId = v4();
-    dispatch(requestRepo());
+
     return fetch("https://api.github.com/users/jakeruleaux")
     .then(response => response.json(),
     error => console.log("error", error)
@@ -30,9 +26,16 @@ export function getRepo(dispatch) {
       const name = json;
       console.log(name);
       dispatch(displayRepo(name));
+      dispatch(requestRepo(repoId));
     } else {
       console.log("error");
     }
   });
 };
 }
+
+export const displayRepo = (name, repoId) => ({
+  type: types.DISPLAY_REPO,
+  repoId,
+  name,
+});
