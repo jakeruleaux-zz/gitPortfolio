@@ -11,20 +11,14 @@ class RepoSearch extends React.Component {
 
   handleSubmitSearch(event) {
     event.preventDefault();
-    let { _name } = this.refs;
-    if (!_name.value.trim()) {
-      return;
-    }
-    this.props.dispatch(getRepo(_name.value.trim()); _name.value = " ";
+    this.props.dispatch(getRepo());
   }
 
   render() {
     return(
       <div>
-        <form onSubmit={this.handleSubmitSearch}>
-          <input placeholder="name" ref="_name"></input>
-          <button>btn</button>
-        </form>
+          <button onClick={this.handleSubmitSearch}>btn</button>
+
       </div>
     );
   }

@@ -25,7 +25,7 @@ This App displays Github repository.
 * Open Terminal on your computer and follow these steps:
   * `$ cd desktop`
   * `$ git clone https://github.com/jakeruleaux/gitPortfolio`
-  * `$ cd shut`
+  * `$ cd gitPortfolio`
   * `$ npm install`
   * $ npm run start
   * navigate to 'localhost:8080' in browser

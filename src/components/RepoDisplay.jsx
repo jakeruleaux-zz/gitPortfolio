@@ -2,16 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getRepo } from './../actions';
+import RepoSearch from './RepoSearch';
 
 const RepoDisplay = ({ dispatch, repo }) => {
     console.log(repo);
   return (
   <div>
-
+    <RepoSearch />
     {repo.name}
-    
-    <p>bob</p>
-    <button onClick={() => {dispatch(getRepo())}}></button>
   </div>
 );
 }

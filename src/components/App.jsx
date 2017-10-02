@@ -1,9 +1,11 @@
 import React from 'react';
 import RepoDisplay from './RepoDisplay';
+import Header from './Header';
 
 function App() {
   return(
-    <div>App
+    <div>
+      <Header />
       <RepoDisplay />
     </div>
   );
