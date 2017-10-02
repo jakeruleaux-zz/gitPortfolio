@@ -7,17 +7,15 @@ const RepoDisplay = ({ dispatch, name }) => {
   return (
   <div>
     {name}
+    <p>bob</p>
     <button onClick={() => {dispatch(getRepo())}}></button>
   </div>
 );
 }
 
-
-
 const mapPropsToState = state => {
-  const repo = state;
   return {
-    repo: repo.name
+    repo: state
   }
 }
 

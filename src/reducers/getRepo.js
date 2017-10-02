@@ -6,7 +6,8 @@ const getRepoReducer = (state = defaultState, action) => {
   let repo;
   let newRepo;
   let newState;
-  switch (action.types) {
+  let repoId;
+  switch (action.type) {
     case types.REQUEST_REPO:
       newRepo = {
         isFetching: true,
@@ -17,14 +18,13 @@ const getRepoReducer = (state = defaultState, action) => {
       });
       return newState;
     case types.DISPLAY_REPO:
-        newRepo = {
+        newRepo = Oject.assign({}, {
           name: action.name,
           url: action.url,
           repoId: action.repoId
-    };
-    newState = Object.assign({}, state, {
-        [action.repoId]: newRepo
     });
+
+
       return newState;
     default:
       return state;
