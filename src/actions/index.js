@@ -10,33 +10,34 @@ export const requestRepo = (repoId) => ({
   repoId: repoId
 });
 
-export const displayRepo = (name, url, repoId) => ({
+export const displayRepo = (name, repoId) => ({
   type: types.DISPLAY_REPO,
   name,
-  url,
   repoId
 });
 
 
-export function getRepo() {
+export function getRepo(dispatch) {
   console.log("hi");
-  const name =[];
-  console.log(name);
-  const url = [];
+
+
   return function (dispatch) {
+    let name;
+
     const repoId = v4();
+      console.log(repoId);
     dispatch(requestRepo());
     return fetch("https://api.github.com/users/jakeruleaux")
     .then(response => response.json(),
     error => console.log("error", error)
   ).then(function(json) {
-    console.log("done")
-    for(var i = 0; i < json.length; i++) {
+    console.log("aftercall?")
+    if (json.id > 1 ) {
       console.log("name");
-      name.push(json[i].name);
-      url.push(json[i].html_url);
-    }
-    dispatch(displayRepo(name, url));
+      const name = json;
+      console.log(name);
+}
+    dispatch(displayRepo(name));
   });
 };
 }
