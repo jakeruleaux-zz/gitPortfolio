@@ -18,7 +18,6 @@ class RepoSearch extends React.Component {
     return(
       <div>
           <button onClick={this.handleSubmitSearch}>btn</button>
-
       </div>
     );
   }

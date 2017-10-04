@@ -9,32 +9,22 @@ const getRepoReducer = (state = defaultState, action) => {
 
   switch (action.type) {
     case types.REQUEST_REPO:
-      newRepo = {
+      newState = {
         isFetching: true,
-        name: action.name,
-        repoId: action.repoId
-      };
-      newState = Object.assign({}, state, {
-        [action.repoId]: newRepo
+      }
+
+      console.log(state);
+      return newState;
+
+    case types.RECIEVE_REPO:
+
+        newState = Object.assign({}, state, action.repo, {
+          isFetching: false,
       });
-      console.log("name");
-      console.log(newState);
+      console.log(newRepo);
       return newState;
     default:
       return state;
-    case types.DISPLAY_REPO:
-        repo = state[action.repoId];
-        console.log(newState);
-        newRepo = Object.assign({}, repo, {
-          isFetching: false,
-          name: action.name,
-          repoId: action.repoId,
-});
-      newState = Object.assign({}, state, {
-        [action.repoId]: newRepo
-      });
-      console.log(newState);
-      return newState;
   }
 };
 

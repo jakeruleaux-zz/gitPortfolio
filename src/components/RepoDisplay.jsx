@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getRepo } from './../actions';
 import RepoSearch from './RepoSearch';
 
 const RepoDisplay = ({ dispatch, repo }) => {
@@ -9,7 +8,10 @@ const RepoDisplay = ({ dispatch, repo }) => {
   return (
   <div>
     <RepoSearch />
+    {repo.url}
+    {repo.login}
     {repo.name}
+    bob
   </div>
 );
 }

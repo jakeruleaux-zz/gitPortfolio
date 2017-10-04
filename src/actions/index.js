@@ -26,6 +26,6 @@ export function getRepo(dispatch) {
 }
 
 export const recieveRepo = (name) => ({
-  type: types.DISPLAY_REPO,
+  type: types.RECIEVE_REPO,
   name,
 });
