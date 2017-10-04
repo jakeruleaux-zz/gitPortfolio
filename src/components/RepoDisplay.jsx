@@ -4,13 +4,14 @@ import { connect } from 'react-redux';
 import RepoSearch from './RepoSearch';
 
 const RepoDisplay = ({ dispatch, repo }) => {
-    console.log(repo);
+  const {name, url, login} = repo;
+  console.log(repo);
   return (
   <div>
     <RepoSearch />
-    {repo.url}
-    {repo.login}
-    {repo.name}
+    {url}
+    {login}
+    {name}
     bob
   </div>
 );
