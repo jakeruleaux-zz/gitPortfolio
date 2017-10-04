@@ -2,22 +2,14 @@ import * as types from "./../constants/ActionTypes";
 import v4 from "uuid/v4";
 import fetch from "isomorphic-fetch";
 
-
-
-export const requestRepo = (repoId) => ({
+export const requestRepo = () => ({
   type: types.REQUEST_REPO,
-  repoId: repoId,
 });
 
-
-
 export function getRepo(dispatch) {
-
-
   return function (dispatch) {
     let name;
-    const repoId = v4();
-
+    dispatch(requestRepo());
     return fetch("https://api.github.com/users/jakeruleaux")
     .then(response => response.json(),
     error => console.log("error", error)
@@ -25,8 +17,7 @@ export function getRepo(dispatch) {
     if (json.id) {
       const name = json;
       console.log(name);
-      dispatch(displayRepo(name));
-      dispatch(requestRepo(repoId));
+      dispatch(recieveRepo(name));
     } else {
       console.log("error");
     }
@@ -34,8 +25,7 @@ export function getRepo(dispatch) {
 };
 }
 
-export const displayRepo = (name, repoId) => ({
+export const recieveRepo = (name) => ({
   type: types.DISPLAY_REPO,
-  repoId,
   name,
 });
